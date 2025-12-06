@@ -44,6 +44,7 @@ export default function Wrapper() {
                     p-5
                     bg-white shadow-lg hover:shadow-2xl transition duration-300 flex flex-wrap items-center
                     justify-center gap-4 rounded-xl overflow-hidden border border-gray-200 w-full
+                
                 ">
 
                 {
