@@ -24,7 +24,7 @@ export default function Wrapper() {
             confirm("Are you shure ?")
             const response = await deletePost(id);
             if (response.status === 200) {
-                const updatedData = data.filter((data)=>{
+                const updatedData = data.filter((data) => {
                     return (data.id !== id)
                 })
                 setData(updatedData);
@@ -39,6 +39,54 @@ export default function Wrapper() {
 
     return (
         <>
+
+            {/* form */}
+
+            <div className="max-w-lg mx-auto bg-white shadow-lg rounded-xl p-6 border border-gray-200 my-8">
+                <h2 className="text-2xl font-semibold text-gray-700 mb-4 text-center">
+                    Create New Post ✍️
+                </h2>
+
+                <form 
+                    //onSubmit={handleSubmit} 
+                    className="space-y-4">
+
+                    {/* Title input */}
+                    <div>
+                        <label className="block mb-1 font-medium text-gray-600">Post Title</label>
+                        <input
+                            type="text"
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2 
+                        focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                            placeholder="Enter post title..."
+                            // value={title}
+                            // onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </div>
+
+                    {/* Body textarea */}
+                    <div>
+                        <label className="block mb-1 font-medium text-gray-600">Post Body</label>
+                        <textarea
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2 h-28 resize-none
+                        focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                            placeholder="Write your post body content..."
+                            // value={body}
+                            // onChange={(e) => setBody(e.target.value)}
+                        />
+                    </div>
+
+                    {/* Submit button */}
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-600 hover:bg-blue-700 duration-300 
+                    text-white py-2 rounded-lg font-medium"
+                    >
+                        Submit Post 🚀
+                    </button>
+                </form>
+            </div>
+            {/* cards */}
             <div
                 className="
                     p-5
@@ -67,7 +115,7 @@ export default function Wrapper() {
                             {/* Footer */}
                             <div className="p-4 flex justify-between">
                                 <button className="text-blue-600 font-medium hover:text-blue-800">Edit</button>
-                                <button className="text-red-600 font-medium hover:text-red-800" onClick={()=>handelDeletePost(data.id)}>Delete</button>
+                                <button className="text-red-600 font-medium hover:text-red-800" onClick={() => handelDeletePost(data.id)}>Delete</button>
                             </div>
                         </div>
                     )
